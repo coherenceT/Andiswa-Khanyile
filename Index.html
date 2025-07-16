@@ -1,51 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Andiswa Khanyile 🌈✨</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lwandile Malinga 💖</title>
   <style>
     body {
       margin: 0;
       padding: 60px 20px;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #ffe0f0, #d0f0ff);
-      background-image: url('https://em-content.zobj.net/thumbs/240/apple/354/sparkles_2728.png'),
-                        url('https://em-content.zobj.net/thumbs/240/apple/354/heart-hands_1faf6-1f90d.png'),
-                        url('https://em-content.zobj.net/thumbs/240/apple/354/unicorn_1f984.png');
-      background-size: 100px, 120px, 90px;
-      background-repeat: repeat;
+      background: linear-gradient(to bottom right, #ffeaf7, #e0f7fa);
+      overflow: hidden;
       text-align: center;
       color: #333;
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 20px;
       padding: 30px;
       max-width: 600px;
       margin: auto;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 10;
     }
 
     h1 {
-      font-size: 2.8em;
-      margin-bottom: 0.3em;
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
     }
 
     p {
-      font-size: 1.3em;
+      font-size: 1.2em;
       line-height: 1.6;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      pointer-events: none;
+      transition: transform 0.1s ease-out;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Hey Andiswa Khanyile! 👋🌟</h1>
-    <p>I'm Coherence 😄</p>
-    <p>Just met you and decided to make something cool and different — a personal website 🎨</p>
-    <p>This is my way of saying: you're one of a kind, and I wanted to make a *really* unique first impression 🌈✨</p>
-    <p>Hope this made you smile 😊</p>
+    <h1>Hey Lwandile Malinga 💖</h1>
+    <p>It’s me — Coherence 😅</p>
+    <p>I know I didn’t exactly make the best impression when we met in the past... and I’m really sorry for that 🙏</p>
+    <p>So I made this little website just for you — something soft, sweet, and honest 💫</p>
+    <p>I hope this makes you smile a bit and maybe gives me a chance to show a better side of me 🌸🦋</p>
+    <p>You truly deserve kindness, peace, and happiness 💐</p>
   </div>
+
+  <!-- Floating Emojis -->
+  <div class="emoji">💖</div>
+  <div class="emoji">🦋</div>
+  <div class="emoji">🌸</div>
+  <div class="emoji">💫</div>
+  <div class="emoji">🌼</div>
+
+  <script>
+    const emojis = document.querySelectorAll('.emoji');
+
+    // Random start positions
+    emojis.forEach(emoji => {
+      emoji.style.top = Math.random() * window.innerHeight + "px";
+      emoji.style.left = Math.random() * window.innerWidth + "px";
+    });
+
+    // Gravity tilt
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", (event) => {
+        const x = event.gamma; // left to right
+        const y = event.beta;  // front to back
+
+        emojis.forEach((emoji, i) => {
+          const offsetX = (Math.sin(x / 10 + i) * 30);
+          const offsetY = (Math.cos(y / 10 + i) * 30);
+          emoji.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        });
+      });
+    }
+  </script>
 </body>
 </html>
